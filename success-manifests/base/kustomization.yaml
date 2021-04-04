@@ -1,0 +1,6 @@
+resources:
+  - cronjob.yaml
+configMapGenerator:
+  - name: cronjob-config
+    literals:
+      - outputText="outputText-outputText"

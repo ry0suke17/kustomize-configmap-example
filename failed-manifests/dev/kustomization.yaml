@@ -1,0 +1,7 @@
+resources:
+  - ../base
+namePrefix: dev-
+commonLabels:
+  # The following error occurs.
+  # metadata.labels: Invalid value: "outputTextoutputTextoutputTextoutputTextoutputTextoutputTextoutputText": must be no more than 63 characters
+  outputText: outputText-outputText-outputText-outputText-outputText-outputText-outputText-outputText

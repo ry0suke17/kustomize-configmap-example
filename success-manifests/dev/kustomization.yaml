@@ -1,0 +1,8 @@
+resources:
+  - ../base
+namePrefix: dev-
+configMapGenerator:
+  - name: cronjob-config
+    literals:
+      - outputText="outputText-outputText-outputText-outputText-outputText-outputText-outputText-outputText"
+    behavior: replace

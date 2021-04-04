@@ -1,0 +1,32 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: test-cronjob
+  labels:
+    outputText: "outputText-outputText"
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: only-echo
+              image: bash
+              command:
+                - bash
+              args:
+                - -c
+                - |
+                  #!/bin/bash
+                  outputs=(${OUTPUT_TEXT//-/ })
+                  for output in ${outputs[@]}
+                  do
+                    echo ${output}
+                  done
+              env:
+                - name: OUTPUT_TEXT
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.labels['outputText']
